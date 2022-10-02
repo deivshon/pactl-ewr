@@ -92,6 +92,7 @@ int main(int argc, char **argv) {
             if(strstr(line, matches[i])) {
                 match_call(line, vol_arg, vol);
                 wait(NULL);
+                break;
             }
         }
 
