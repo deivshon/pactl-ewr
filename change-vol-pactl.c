@@ -56,7 +56,7 @@ void output_exec(char *dest, int dest_size, char *cmd, char **cmd_args) {
 
 void match_call(char *line, char *vol_arg, char *vol) {
     char *endptr_line;
-    char *sink_num = strtok_r(line, "\t\r ", &endptr_line);
+    char *sink_num = strtok_r(line, "\t ", &endptr_line);
 
     char *pactl_args[5] = {PACTL_COMMAND, vol_arg, sink_num, vol, NULL};
     printf("%s %s %s %s\n", pactl_args[0], pactl_args[1], pactl_args[2], pactl_args[3]);
