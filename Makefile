@@ -13,7 +13,7 @@ clean:
 install: all
 	mkdir -p $(INSTALL_PATH)
 	cp change-vol-pactl $(INSTALL_PATH)
-	chmod 711 $(INSTALL_PATH)/change-vol-pactl
+	chmod 755 $(INSTALL_PATH)/change-vol-pactl
 
 uninstall:
 	rm -f $(INSTALL_PATH)/change-vol-pactl
