@@ -6,6 +6,8 @@ If in a line of the `pactl list sinks short` output a string present in the `MAT
 
 `config.h` can be edited to make the program search for whatever strings might be of interest in the `pactl list sinks short` output.
 
+Note: the `MATCHES` array definition must **always** be NULL terminated.
+
 ## Usage
 `change-pactl-volume {volume specification | toggle}`
 

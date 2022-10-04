@@ -84,11 +84,11 @@ int main(int argc, char **argv) {
     char sinks_list[2048];
     output_exec(sinks_list, sizeof(sinks_list) - 1, PACTL_COMMAND, pactl_list_sinks);
 
-    char *matches[MATCHES_LEN] = MATCHES;
+    char *matches[] = MATCHES;
     char *endptr_whole;
     char *line = strtok_r(sinks_list, "\n", &endptr_whole);
     while(line != NULL) {
-        for(int i = 0; i < MATCHES_LEN; i++) {
+        for(int i = 0; matches[i] != NULL; i++) {
             if(strstr(line, matches[i])) {
                 match_call(line, vol_arg, vol);
                 wait(NULL);
