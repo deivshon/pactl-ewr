@@ -1,18 +1,18 @@
-INSTALL_PATH = /usr/local/bin
+INSTALL_PATH = ~/.local/bin
 
 CFLAGS = -Wall -Wextra -O2
 
 all: change-vol-pactl
 
-change-vol-pactl: change-vol-pactl.c config.h
-	gcc $(CFLAGS) -o $@ $<
+change-vol-pactl: src/main.rs
+	cargo build --release
 
 clean:
-	rm -f change-vol-pactl *.o
+	cargo clean
 
 install: all
 	mkdir -p $(INSTALL_PATH)
-	cp change-vol-pactl $(INSTALL_PATH)
+	cp ./target/release/change-vol-pactl $(INSTALL_PATH)
 	chmod 755 $(INSTALL_PATH)/change-vol-pactl
 
 uninstall:
