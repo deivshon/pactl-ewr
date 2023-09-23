@@ -2,9 +2,9 @@ INSTALL_PATH = ~/.local/bin
 
 CFLAGS = -Wall -Wextra -O2
 
-all: change-vol-pactl
+all: pactl-ewr
 
-change-vol-pactl: src/main.rs
+pactl-ewr: src/main.rs
 	cargo build --release
 
 clean:
@@ -12,10 +12,10 @@ clean:
 
 install: all
 	mkdir -p $(INSTALL_PATH)
-	cp ./target/release/change-vol-pactl $(INSTALL_PATH)
-	chmod 755 $(INSTALL_PATH)/change-vol-pactl
+	cp ./target/release/pactl-ewr $(INSTALL_PATH)
+	chmod 755 $(INSTALL_PATH)/pactl-ewr
 
 uninstall:
-	rm -f $(INSTALL_PATH)/change-vol-pactl
+	rm -f $(INSTALL_PATH)/pactl-ewr
 
 .PHONY: all clean install uninstall
